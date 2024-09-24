@@ -1,0 +1,43 @@
+{
+  "name": "macropaybackendchallenge",
+  "version": "1.0.0",
+  "description": "A Users microservice RESTful API",
+  "main": "service.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch-path=./src ./service.js",
+    "start": "node ./service.js",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sterroso/MacropayBackendChallenge.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "node",
+    "express",
+    "users",
+    "auth",
+    "jwt"
+  ],
+  "author": "Sergio Terroso <sergio.terroso@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sterroso/MacropayBackendChallenge/issues"
+  },
+  "homepage": "https://github.com/sterroso/MacropayBackendChallenge#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "eslint": "^9.11.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "prettier": "3.3.3"
+  }
+}

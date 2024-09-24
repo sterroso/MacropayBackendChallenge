@@ -1,0 +1,15 @@
+# The node modules directory.
+node_modules/
+
+# The VSCode configurations directory
+.vscode/
+
+# Environment variables files
+.env*
+.env.dev*
+.env.test*
+.env.stag*
+.env.prod*
+
+# Node Version Manager configuration
+.nvmrc
