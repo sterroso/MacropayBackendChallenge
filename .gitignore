@@ -13,3 +13,7 @@ node_modules/
 
 # Node Version Manager configuration
 .nvmrc
+
+# Docker files
+Dockerfile
+docker-compose.yml

@@ -5,8 +5,8 @@
   "main": "service.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch-path=./src ./service.js",
-    "start": "node ./service.js",
+    "dev": "node --watch-path=./src ./server.js",
+    "start": "node ./server.js",
     "test": "vitest"
   },
   "repository": {
@@ -30,10 +30,12 @@
   "homepage": "https://github.com/sterroso/MacropayBackendChallenge#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "mysql2": "^3.11.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
+    "dotenv": "^16.4.5",
     "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
