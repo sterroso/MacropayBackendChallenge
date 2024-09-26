@@ -5,8 +5,8 @@ import { createUser } from "../controllers/user.controller.js";
 
 const router = Router();
 
-router.post("/register", createUser);
-
 router.post("/login", login);
+
+router.post("/register", createUser);
 
 export default router;
