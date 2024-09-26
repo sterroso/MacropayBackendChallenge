@@ -19,6 +19,8 @@ model User {
   password      String
   firstName     String
   lastName      String
+  dateOfBirth   DateTime?                                                       // Campo de la V2 de la API
+  verifiedEmail Boolean @default(false)                                         // Campo de la V2 de la API
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   deletedAt     DateTime?
