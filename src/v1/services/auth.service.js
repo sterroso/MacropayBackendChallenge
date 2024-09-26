@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 
 import prisma from "../../prismaClient.js";
-import GetUserDto from "../../v1/models/dtos/get-user.dto.js";
+import GetUserDto from "../models/dtos/get-user.dto.js";
 
 const { compare } = bcrypt;
 
@@ -30,7 +30,7 @@ export default class AuthService {
 
       const redactedUser = new GetUserDto(user);
 
-      return [true, redactedUser];
+      return [true, { ...redactedUser }];
     } catch (error) {
       throw error;
     }
