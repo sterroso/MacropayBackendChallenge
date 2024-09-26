@@ -48,13 +48,13 @@ export const createUser = async (req, res) => {
   const { body } = req;
 
   try {
-    const createDto = new CreateUserDTO(body);
-    const errors = await CreateUserDTO.validateUserInput(createDto);
-
+    const errors = await CreateUserDTO.validateUserInput(body);
+    
     if (errors.length > 0) {
       return res.status(400).json({ status: "error", errors });
     }
-
+    
+    const createDto = new CreateUserDTO(body);
     const newUser = await userService.create(createDto);
 
     res.status(201).json({ status: "success", newUser });
@@ -68,13 +68,13 @@ export const updateUser = async (req, res) => {
   const { userId } = req.params;
 
   try {
-    const updateDto = new UpdateUserDTO(body);
-    const errors = await UpdateUserDTO.validateUserInput(updateDto);
-
+    const errors = await UpdateUserDTO.validateUserInput(body);
+    
     if (errors.length > 0) {
       return res.status(400).json({ status: "error", errors });
     }
-
+    
+    const updateDto = new UpdateUserDTO(body);
     const updatedUser = await userService.update(userId, updateDto);
 
     res.status(200).json({ status: "success", updatedUser });
