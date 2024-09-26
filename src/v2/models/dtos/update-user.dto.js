@@ -64,7 +64,7 @@ export default class UpdateUserDTO {
     if (userDto.dateOfBirth) {
       const dateOfBirth = new Date(userDto.dateOfBirth);
 
-      if (dateOfBirth.toString() === "Ivalid Date") {
+      if (dateOfBirth.toString() === "Invalid Date") {
         errors.push(USER_ERROR_MESSAGES.BIRTH_DATE_FORMAT);
       } else {
         const today = new Date();

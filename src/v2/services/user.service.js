@@ -19,7 +19,13 @@ export default class UserService {
       });
 
       if (users && users.length > 0) {
-        return users.map((user) => new GetUserDTO(user));
+        return users.map((user) => {
+          const safeUser = new GetUserDTO(user);
+          return {
+            ...safeUser,
+            age: safeUser.age,
+          }
+        });
       }
 
       return [];
@@ -35,7 +41,14 @@ export default class UserService {
         where: { id, deletedAt: null }
       });
 
-      return user ? new GetUserDTO(user) : null;
+      if (!user) return null;
+
+      const safeUser = new GetUserDTO(user);
+
+      return {
+        ...safeUser,
+        age: safeUser.age,
+      };
     } catch (error) {
       console.error('UserService [v2] findOneById error', error.message);
       throw error;
@@ -52,7 +65,14 @@ export default class UserService {
         }
       });
 
-      return newUser ? new GetUserDTO(newUser) : null;
+      if (!newUser) return null;
+
+      const safeNewUser = new GetUserDTO(newUser);
+
+      return {
+        ...safeNewUser,
+        age: safeNewUser.age,
+      }
     } catch (error) {
       console.error('USerService [v2] create error', error.message);
       throw error;
@@ -80,7 +100,14 @@ export default class UserService {
         });
       }
 
-      return updatedUser.id ? new GetUserDTO(updatedUser) : null;
+      if (!updatedUser) return null;
+
+      const safeUpdatedUser = new GetUserDTO(updatedUser);
+
+      return {
+        ...safeUpdatedUser,
+        age: safeUpdatedUser.age,
+      }
     } catch (error) {
       console.error('UserService [v2] update error', error.message);
       throw error;
@@ -89,12 +116,18 @@ export default class UserService {
 
   async remove(id) {
     try {
-      const deletedUser = await this.prisma.user.update({
+      const existsUser = await this.prisma.user.findUnique({
         where: { id, deletedAt: null },
+      });
+
+      if (!existsUser) return false;
+
+      await this.prisma.user.update({
+        where: { id },
         data: { deletedAt: new Date() },
       });
 
-      return deletedUser ? true : false;
+      return true;
     } catch (error) {
       console.error('UserService [v2] remove error', error.message);
       throw error;

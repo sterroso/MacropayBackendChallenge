@@ -51,7 +51,7 @@ export const createUser = async (req, res) => {
   try {
     const errors = await CreateUserDTO.validateUserInput(body);
 
-    if (errors) {
+    if (errors.length > 0) {
       return res.status(400).json({ status: 'Error', errors });
     }
 
@@ -121,7 +121,7 @@ export const deleteUser = async (req, res) => {
       });
     }
 
-    res.status(204);
+    res.status(204).end();
   } catch (error) {
     res.status(500).json({
       status: 'Error',

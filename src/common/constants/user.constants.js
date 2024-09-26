@@ -9,7 +9,7 @@ export const USER_ERROR_MESSAGES = {
   NO_EMAIL: 'Debe proporcionar un email para el usuario.',
   EMAIL_FORMAT: 'El email del usuario no tiene un formato válido.',
   NO_PASSWORD: 'Debe proporcionar una contraseña para el usuario.',
-  PASSWORD_FORMAT: 'La contraseña deb tener, por lo menos, 8 caracteres, incluyendo al menos un número y un caracter especial.',
+  PASSWORD_FORMAT: 'La contraseña debe tener, por lo menos, 8 caracteres, incluyendo al menos un número y un caracter especial.',
   NO_FIRST_NAME: 'Debe proporcional el/los nombre(s) de pila del usuario.',
   FIRST_NAME_MIN_LENGTH: `El/los nombre(s) de pila del usuario deben tener, por lo menos, ${USER_FIRST_NAME_MIN_LENGTH} caracteres.`,
   NO_LAST_NAME: 'Debe proporcionar el/los apellido(s) del usuario.',
